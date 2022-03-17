@@ -529,19 +529,14 @@ public final class TimelineView: UIView {
     let fullTimelineHeight = 24 * style.verticalDiff
     let hour = component(component: .hour, from: date)
     let minute = component(component: .minute, from: date)
-      
-      //let hourY = CGFloat(hour) * style.verticalDiff + style.verticalInset
-
-      
-    let hourY = CGFloat(hour - 8) * style.verticalDiff + style.verticalInset
+    let hourY = CGFloat(hour) * style.verticalDiff + style.verticalInset
     let minuteY = CGFloat(minute) * style.verticalDiff / 60
     return hourY + minuteY + fullTimelineHeight * dayOffset
   }
 
   public func yToDate(_ y: CGFloat) -> Date {
     let timeValue = y - style.verticalInset
-     // var hour = Int(timeValue / style.verticalDiff) + 8
-      var hour = Int(timeValue / style.verticalDiff) + 8
+    var hour = Int(timeValue / style.verticalDiff)
     let fullHourPoints = CGFloat(hour) * style.verticalDiff
     let minuteDiff = timeValue - fullHourPoints
     let minute = Int(minuteDiff / style.verticalDiff * 60)
