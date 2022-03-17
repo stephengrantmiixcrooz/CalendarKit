@@ -4,7 +4,7 @@ import UIKit
 public final class AllDayView: UIView {
   private var style = AllDayViewStyle()
   
-  private let allDayEventHeight: CGFloat = 48.0
+  private let allDayEventHeight: CGFloat = 24.0
   
   public var events: [EventDescriptor] = [] {
     didSet {
