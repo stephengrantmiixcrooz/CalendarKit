@@ -38,4 +38,26 @@ struct TimeStringsFactory {
     pm.append(am.first!)
     return am + pm
   }
+    
+  func make8amto5pmStrings() -> [String] {
+      var amnumbers = [String]()
+      for i in 8...11 {
+        let string = String(i)
+        amnumbers.append(string)
+      }
+
+      var am = amnumbers.map { $0 + " " + calendar.amSymbol}
+      am.append(localizedString("12:00"))
+
+      
+      var pmnumbers = [String]()
+      for i in 1...5 {
+        let string = String(i)
+        pmnumbers.append(string)
+      }
+      var pm = pmnumbers.map { $0 + " " + calendar.pmSymbol}
+      
+      return am + pm
+    }
+    
 }

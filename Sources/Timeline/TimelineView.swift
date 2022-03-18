@@ -116,16 +116,19 @@ public final class TimelineView: UIView {
   }
 
   private var times: [String] {
-    return is24hClock ? _24hTimes : _12hTimes
+    //return is24hClock ? _24hTimes : _12hTimes
+      return _8to5Times
   }
 
   private lazy var _12hTimes: [String] = TimeStringsFactory(calendar).make12hStrings()
   private lazy var _24hTimes: [String] = TimeStringsFactory(calendar).make24hStrings()
-  
+  private lazy var _8to5Times: [String] = TimeStringsFactory(calendar).make8amto5pmStrings()
+
   private func regenerateTimeStrings() {
     let factory = TimeStringsFactory(calendar)
     _12hTimes = factory.make12hStrings()
     _24hTimes = factory.make24hStrings()
+    _8to5Times = factory.make8amto5pmStrings()
   }
   
   public lazy var longPressGestureRecognizer = UILongPressGestureRecognizer(target: self,
