@@ -89,7 +89,7 @@ public final class TimelineView: UIView {
     //8AM to 5PM changes
     public var fullHeight: CGFloat {
         //return style.verticalInset * 2 + style.verticalDiff * 24
-        return style.verticalDiff * 8
+        return style.verticalInset * 2 + style.verticalDiff * 8
     }
     
     public var calendarWidth: CGFloat {
