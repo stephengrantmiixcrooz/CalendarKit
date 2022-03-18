@@ -386,13 +386,20 @@ public final class TimelineView: UIView {
         if !isToday {
             nowLine.alpha = 0
         } else {
-            bringSubviewToFront(nowLine)
-            nowLine.alpha = 1
-            let size = CGSize(width: bounds.size.width, height: 20)
-            let rect = CGRect(origin: CGPoint.zero, size: size)
-            nowLine.date = currentTime
-            nowLine.frame = rect
-            nowLine.center.y = dateToY(currentTime)
+            let hour = component(component: .hour, from: currentTime)
+            //8 AM to 5 PM changes
+            if (hour >= 8 && hour <= 17){
+                bringSubviewToFront(nowLine)
+                nowLine.alpha = 1
+                let size = CGSize(width: bounds.size.width, height: 20)
+                let rect = CGRect(origin: CGPoint.zero, size: size)
+                nowLine.date = currentTime
+                nowLine.frame = rect
+                nowLine.center.y = dateToY(currentTime)
+            } else{
+                nowLine.alpha = 0
+                
+            }
         }
     }
     
