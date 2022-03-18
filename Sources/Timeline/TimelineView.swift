@@ -518,25 +518,45 @@ public final class TimelineView: UIView {
 
   // MARK: - Helpers
 
-  public func dateToY(_ date: Date) -> CGFloat {
-    let provisionedDate = date.dateOnly(calendar: calendar)
-    let timelineDate = self.date.dateOnly(calendar: calendar)
-    var dayOffset: CGFloat = 0
-    if provisionedDate > timelineDate {
-      // Event ending the next day
-      dayOffset += 1
-    } else if provisionedDate < timelineDate {
-      // Event starting the previous day
-      dayOffset -= 1
-    }
-    let fullTimelineHeight = 24 * style.verticalDiff
-    let hour = component(component: .hour, from: date)
-    let minute = component(component: .minute, from: date)
-    let hourY = CGFloat(hour) * style.verticalDiff + style.verticalInset
-    let minuteY = CGFloat(minute) * style.verticalDiff / 60
-    return hourY + minuteY + fullTimelineHeight * dayOffset
-  }
+//  public func dateToY(_ date: Date) -> CGFloat {
+//    let provisionedDate = date.dateOnly(calendar: calendar)
+//    let timelineDate = self.date.dateOnly(calendar: calendar)
+//    var dayOffset: CGFloat = 0
+//    if provisionedDate > timelineDate {
+//      // Event ending the next day
+//      dayOffset += 1
+//    } else if provisionedDate < timelineDate {
+//      // Event starting the previous day
+//      dayOffset -= 1
+//    }
+//    let fullTimelineHeight = 24 * style.verticalDiff
+//    let hour = component(component: .hour, from: date)
+//    let minute = component(component: .minute, from: date)
+//    let hourY = CGFloat(hour) * style.verticalDiff + style.verticalInset
+//    let minuteY = CGFloat(minute) * style.verticalDiff / 60
+//    return hourY + minuteY + fullTimelineHeight * dayOffset
+//  }
 
+    //Changes for 8AM to 5PM
+    public func dateToY(_ date: Date) -> CGFloat {
+      let provisionedDate = date.dateOnly(calendar: calendar)
+      let timelineDate = self.date.dateOnly(calendar: calendar)
+      var dayOffset: CGFloat = 0
+      if provisionedDate > timelineDate {
+        // Event ending the next day
+        dayOffset += 1
+      } else if provisionedDate < timelineDate {
+        // Event starting the previous day
+        dayOffset -= 1
+      }
+      let fullTimelineHeight = 8 * style.verticalDiff
+      let hour = component(component: .hour, from: date)
+      let minute = component(component: .minute, from: date)
+      let hourY = CGFloat(hour - 8) * style.verticalDiff + style.verticalInset
+      let minuteY = CGFloat(minute) * style.verticalDiff / 60
+      return hourY + minuteY + fullTimelineHeight * dayOffset
+    }
+    
   public func yToDate(_ y: CGFloat) -> Date {
     let timeValue = y - style.verticalInset
     var hour = Int(timeValue / style.verticalDiff)
