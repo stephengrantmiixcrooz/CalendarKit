@@ -65,6 +65,6 @@ public final class TimelineContainer: UIScrollView {
 //        let percentToScroll = CGFloat(hour24 / 10)
 //        let yToScroll = contentSize.height * percentToScroll
 //        let padding: CGFloat = 8
-        setTimelineOffset(CGPoint(x: contentOffset.x, y: 8), animated: true)
+        setTimelineOffset(CGPoint(x: contentOffset.x, y: -8), animated: true)
     }
 }
