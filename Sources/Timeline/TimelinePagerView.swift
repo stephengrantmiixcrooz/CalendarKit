@@ -144,10 +144,10 @@ public final class TimelinePagerView: UIView, UIGestureRecognizerDelegate, UIScr
         }
     }
     
-    public func scrollToTopIn8AMTo5PMView() {
+    public func scrollToTopIn8AMTo5PMView(y : Int) {
         // Any view is fine as they are all synchronized
         if let controller = currentTimeline {
-            controller.container.scrollToTopIn8AMTo5PMView()
+            controller.container.scrollToTopIn8AMTo5PMView(yVal : y)
         }
     }
     
