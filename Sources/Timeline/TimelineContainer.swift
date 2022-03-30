@@ -61,10 +61,10 @@ public final class TimelineContainer: UIScrollView {
         setContentOffset(CGPoint(x: offset.x, y: newContentY), animated: animated)
     }
     
-    public func scrollToTopIn8AMTo5PMView(hour24: Float, animated: Bool = true) {
+    public func scrollToTopIn8AMTo5PMView() {
 //        let percentToScroll = CGFloat(hour24 / 10)
 //        let yToScroll = contentSize.height * percentToScroll
 //        let padding: CGFloat = 8
-        setTimelineOffset(CGPoint(x: contentOffset.x, y: 0), animated: animated)
+        setTimelineOffset(CGPoint(x: contentOffset.x, y: 0), animated: true)
     }
 }

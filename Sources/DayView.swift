@@ -145,6 +145,10 @@ public class DayView: UIView, TimelinePagerViewDelegate {
     timelinePagerView.scrollToFirstEventIfNeeded(animated: animated)
   }
 
+  public func scrollToTopIn8AMTo5PMView() {
+    timelinePagerView.scrollToTopIn8AMTo5PMView()
+  }
+    
   public func reloadData() {
     timelinePagerView.reloadData()
   }
