@@ -36,7 +36,7 @@ public final class TimelineContainer: UIScrollView {
     
     public func allDayViewForceUpdate(){
         timeline.frame = CGRect(x: 0, y: 0, width: bounds.width, height: timeline.fullHeight)
-        timeline.offsetAllDayView(by: contentOffset.y)
+        timeline.offsetAllDayView(by: 0)
     }
     
     public func scrollToFirstEvent(animated: Bool) {
