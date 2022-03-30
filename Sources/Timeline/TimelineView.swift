@@ -92,7 +92,7 @@ public final class TimelineView: UIView {
         var calculatedHeight = style.verticalInset * 2 + style.verticalDiff * 12
         var screenHeight = UIScreen.main.bounds.height
         if calculatedHeight < screenHeight{
-            return screenHeight
+            return screenHeight - allDayViewHeight - 88
         }
         return calculatedHeight
     }
