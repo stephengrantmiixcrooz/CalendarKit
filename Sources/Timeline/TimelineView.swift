@@ -89,7 +89,7 @@ public final class TimelineView: UIView {
     //8AM to 5PM changes
     public var fullHeight: CGFloat {
         //return style.verticalInset * 2 + style.verticalDiff * 24
-        return style.verticalInset * 2 + style.verticalDiff * 10
+        return style.verticalInset * 2 + style.verticalDiff * 24
     }
     
     public var calendarWidth: CGFloat {
@@ -380,6 +380,7 @@ public final class TimelineView: UIView {
         layoutEvents()
         layoutNowLine()
         layoutAllDayEvents()
+        
     }
     
     private func layoutNowLine() {
